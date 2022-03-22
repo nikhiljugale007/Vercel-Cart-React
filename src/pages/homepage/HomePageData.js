@@ -1,5 +1,4 @@
 import {
-	hero1,
 	casualshoes,
 	flipflop,
 	formalshoes,
