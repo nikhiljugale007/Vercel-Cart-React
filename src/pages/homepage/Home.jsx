@@ -10,7 +10,7 @@ import {
 	woodlandlogo,
 	wrognlogo,
 } from "../../assets";
-import { Adv_card, Discount_card } from "../../components";
+import { AdvCard, DiscountCard } from "../../components";
 const Home = () => {
 	const todays_deals = [
 		{
@@ -132,7 +132,7 @@ const Home = () => {
 				</div>
 				<div className="grid grid-auto">
 					{todays_deals.map((item) => (
-						<Discount_card
+						<DiscountCard
 							card_title={item.item_name}
 							card_subtitle={item.offer}
 							image_src={item.image_src}
@@ -148,7 +148,7 @@ const Home = () => {
 				</div>
 				<div className="grid grid-4-responsive">
 					{top_categories.map((item) => (
-						<Adv_card
+						<AdvCard
 							card_title={item.category_name}
 							image_src={item.image_src}
 							image_alt={item.image_alt}
@@ -164,7 +164,7 @@ const Home = () => {
 
 				<div className="grid grid-4-responsive">
 					{top_brands.map((item) => (
-						<Adv_card
+						<AdvCard
 							card_title={item.brand_name}
 							image_src={item.image_src}
 							image_alt={item.image_alt}

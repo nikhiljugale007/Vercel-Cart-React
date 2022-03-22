@@ -1,5 +1,5 @@
-import "./Adv_card.css";
-const Adv_card = ({ image_src, image_alt, card_title }) => {
+import "./AdvCard.css";
+const AdvCard = ({ image_src, image_alt, card_title }) => {
 	return (
 		<div className="category-item">
 			<img className="img-round" alt={image_alt} src={image_src} />
@@ -8,4 +8,4 @@ const Adv_card = ({ image_src, image_alt, card_title }) => {
 	);
 };
 
-export { Adv_card };
+export { AdvCard };
