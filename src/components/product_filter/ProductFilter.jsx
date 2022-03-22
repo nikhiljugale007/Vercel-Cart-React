@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./ProductFilter.css";
-import { ProductFilter_Sub } from "./ProductFilter_Sub";
+import { ProductFilterSub } from "./ProductFilterSub";
 const ProductFilter = () => {
 	const [mobileSidebar, setMobileSidebar] = useState(false);
 
@@ -42,7 +42,7 @@ const ProductFilter = () => {
 						</div>
 						<hr />
 						{/* product filter sub contain all filter */}
-						<ProductFilter_Sub />
+						<ProductFilterSub />
 					</div>
 				)}
 				<div className="desktop-sidebar">
@@ -53,7 +53,7 @@ const ProductFilter = () => {
 					<hr />
 					{/* product filter sub contain all filter */}
 
-					<ProductFilter_Sub />
+					<ProductFilterSub />
 				</div>
 			</div>
 		</>

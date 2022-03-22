@@ -1,11 +1,8 @@
-import { useState } from "react";
 import "./ProductFilter.css";
 import { RadioInput } from "../filter_input/RadioInput";
 import { CheckboxInput } from "../filter_input/CheckboxInput";
 import { PriceRangeInput } from "../filter_input/PriceRangeInput";
-const ProductFilter_Sub = () => {
-	const [mobileSidebar, setMobileSidebar] = useState(false);
-
+const ProductFilterSub = () => {
 	const categoryOptions = [
 		"Formal Shoes",
 		"Casual Shoes",
@@ -52,4 +49,4 @@ const ProductFilter_Sub = () => {
 	);
 };
 
-export { ProductFilter_Sub };
+export { ProductFilterSub };
