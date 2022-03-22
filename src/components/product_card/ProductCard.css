@@ -1,0 +1,16 @@
+.ecommerce-chip-left {
+	color: var(--primary-bg-color);
+	padding: 6px;
+	left: 0;
+	border-radius: 0;
+	padding-right: 2rem;
+	clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+.wishlisted {
+	background-color: var(--hover-color);
+	color: var(--danger-color);
+}
+.btn-outlined:hover {
+	background-color: var(--primary-color);
+	color: var(--primary-bg-color);
+}

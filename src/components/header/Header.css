@@ -4,6 +4,8 @@
 	align-items: center;
 	justify-content: space-between;
 	box-shadow: 0 5px 3px -3px var(--box-shadow);
+	position: fixed;
+	z-index: 5;
 }
 .header-link {
 	box-sizing: content-box;
@@ -11,7 +13,6 @@
 	text-decoration: none;
 	font-size: 1.8rem;
 }
-
 .header-sub-container {
 	display: flex;
 	align-items: center;
@@ -50,5 +51,10 @@
 	}
 	.btn-hide {
 		display: none;
+	}
+}
+@media screen and (max-width: 992px) {
+	.header {
+		padding: 1rem 0;
 	}
 }
