@@ -5,6 +5,7 @@ const CartProductCard = () => {
 			<img
 				class="card-img-container horizontal-card-image "
 				src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14971104/2021/7/29/e894ad8a-2c03-44ff-98ac-f0e9226ddc7f1627553869161AfroJackMenGreen1.jpg"
+				alt="shoes"
 			/>
 			<div class="card-body">
 				<h2 class="card-heading">Running shoes</h2>
