@@ -1,8 +1,8 @@
 import "./FilterInput.css";
 const CheckboxInput = ({ label }) => {
 	return (
-		<label>
-			<input type="radio" />
+		<label htmlFor="checkboxinput">
+			<input type="checkbox" id="checkboxinput" />
 			<span className="typo-subtext label-text">{label}</span>
 		</label>
 	);

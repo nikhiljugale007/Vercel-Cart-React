@@ -25,7 +25,7 @@ const ProductFilterSub = () => {
 			<ul className="list list-style-nostyle">
 				<label className="typo-subtext text-bold">Category</label>
 				{categoryOptions.map((option, index) => (
-					<RadioInput label={option} />
+					<CheckboxInput label={option} key={index} />
 				))}
 			</ul>
 			<hr />
@@ -34,7 +34,7 @@ const ProductFilterSub = () => {
 			<ul className="list list-style-nostyle">
 				<label className="typo-subtext text-bold">Rating</label>
 				{ratingOptions.map((option, index) => (
-					<CheckboxInput label={option + " star & above"} />
+					<RadioInput label={option + " star & above"} key={index} />
 				))}
 			</ul>
 			<hr />
