@@ -1,0 +1,23 @@
+.discount_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 20rem;
+	height: auto;
+	gap: 0.5rem;
+	padding: 1rem;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+	background: linear-gradient(#e66465, #9198e5);
+}
+.discount_card:hover {
+	cursor: pointer;
+	box-shadow: 0 0 5px var(--box-shadow);
+	background-color: var(--hover-color);
+	transform: scale(1.05);
+}
+@media screen and (max-width: 460px) {
+	.discount_card {
+		width: 15rem;
+	}
+}
