@@ -114,7 +114,7 @@ const Home = () => {
 					<div className="text-section">
 						<div className="typo-label">UP TO 20% DISCOUNT ON</div>
 						<div className="h1 text-bold">Footware Fashion</div>
-						<p>
+						<p className="typo-subtext">
 							Top deals on shoes, sandals, flip-flops. Find your best brands at
 							affordable price. No cost EMI. Complete Protection. Exchange
 							offer.
