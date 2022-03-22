@@ -1,0 +1,54 @@
+.header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 5px 3px -3px var(--box-shadow);
+}
+.header-link {
+	box-sizing: content-box;
+	font-weight: 500;
+	text-decoration: none;
+	font-size: 1.8rem;
+}
+
+.header-sub-container {
+	display: flex;
+	align-items: center;
+	gap: 0 2rem;
+}
+.btn-icon {
+	color: #2d3748;
+}
+.search-container {
+	display: flex;
+	gap: 0;
+	background-color: var(--hover-color);
+}
+.search-bar {
+	padding: 1rem;
+	border: 0;
+	border-radius: 8px;
+	background-color: var(--hover-color);
+}
+.search-bar:focus {
+	outline: none;
+	border-radius: 8px;
+}
+.badge-parent {
+	position: relative;
+}
+.badge-itself {
+	position: absolute;
+	top: -1.2rem;
+	right: -1.2rem;
+}
+
+@media screen and (max-width: 850px) {
+	.btn-menu {
+		display: block;
+	}
+	.btn-hide {
+		display: none;
+	}
+}

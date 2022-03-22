@@ -3,9 +3,7 @@
 	box-sizing: border-box;
 	font-size: 100%;
 }
-.btn-icon {
-	color: #2d3748;
-}
+
 .hero-section {
 	background-color: #e5f2ff;
 	border-radius: 10px;
@@ -55,25 +53,11 @@
 	padding: 2rem;
 }
 
-.badge-parent {
-	position: relative;
-}
-.badge-itself {
-	position: absolute;
-	top: -1rem;
-	right: -1rem;
-}
 @media screen and (max-width: 850px) {
 	.hero-section .img-responsive {
 		border-top-right-radius: 0;
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
-	}
-	.btn-menu {
-		display: block;
-	}
-	.btn-hide {
-		display: none;
 	}
 }
 @media screen and (max-width: 460px) {
