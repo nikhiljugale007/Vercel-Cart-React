@@ -1,4 +1,3 @@
-import { React } from "react";
 import { logo } from "../../assets";
 import { Link } from "react-router-dom";
 import "./Header.css";
@@ -11,7 +10,7 @@ const Header = () => {
 						<i className="fa fa-bars fa-lg" aria-hidden="true"></i>
 					</button>
 					<Link to="/home" className="btn btn-link btn-hide header-link">
-						<img className="img-round logo-container" src={logo} />
+						<img className="img-round logo-container" src={logo} alt="logo" />
 					</Link>
 					<Link to="/home" className="btn btn-link header-link">
 						Home
