@@ -1,0 +1,29 @@
+.bill-card {
+	width: 35rem;
+}
+
+hr {
+	margin: 0;
+}
+.bill-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 1rem 0;
+}
+.bill-item-vertical {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 0;
+}
+
+@media screen and (max-width: 992px) {
+	.item-section {
+		display: flex;
+		justify-self: center;
+	}
+	.bill-section {
+		display: flex;
+		justify-self: center;
+	}
+}

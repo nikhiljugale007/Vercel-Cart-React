@@ -1,0 +1,30 @@
+.grid-2x2 {
+	grid-template-columns: 1fr 1fr;
+}
+.item-section {
+	display: flex;
+	flex-direction: column;
+	justify-self: flex-end;
+	gap: 2rem;
+	padding: 1rem;
+}
+.bill-section {
+	display: flex;
+	flex-direction: column;
+	justify-self: flex-start;
+	padding: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+	.grid-2x2 {
+		grid-template-columns: 1fr;
+	}
+	.item-section {
+		display: flex;
+		justify-self: center;
+	}
+	.bill-section {
+		display: flex;
+		justify-self: center;
+	}
+}
