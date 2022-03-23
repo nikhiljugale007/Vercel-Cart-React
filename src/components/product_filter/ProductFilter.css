@@ -1,0 +1,25 @@
+.sidebar-section {
+	background-color: var(--primary-bg-color);
+	grid-area: sidebar;
+	overflow: scroll;
+	scroll-behavior: smooth;
+	height: auto;
+}
+.mobile-bottom-sidbar {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.mobile-sidebar {
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 20;
+}
+.slider-container {
+	margin: 1rem;
+}
+.list {
+	border: 0;
+}
