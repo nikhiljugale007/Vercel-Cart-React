@@ -2,7 +2,7 @@ import "./Cart.css";
 import { CartProductCard, BillCard } from "../../components";
 const Cart = () => {
 	return (
-		<div>
+		<div className="cart-page">
 			<p className="typo-title flex-hz-center m-1">My Cart</p>
 			<div class="grid grid-2x2">
 				<div class="item-section">
