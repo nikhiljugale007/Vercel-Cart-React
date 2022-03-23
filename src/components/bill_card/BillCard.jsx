@@ -17,7 +17,7 @@ const BillCard = () => {
 					<p class="typo-subtext">- Rs 1000</p>
 				</div>
 				<div class="bill-item">
-					<p class="typo-subtext">Dilevery charges</p>
+					<p class="typo-subtext">Delivery charges</p>
 					<p class="typo-subtext">Rs 199</p>
 				</div>
 				<hr />
@@ -29,7 +29,7 @@ const BillCard = () => {
 				<div class="bill-item">
 					<p class="typo-label typo-subtext">
 						<i class="fas fa-tags"></i>
-						Use coupan
+						Use Coupon
 					</p>
 					<button class="btn btn-success p-0">Apply</button>
 				</div>
