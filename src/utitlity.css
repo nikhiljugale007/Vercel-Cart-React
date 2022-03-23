@@ -47,6 +47,9 @@
 .btn-full-width {
 	width: 100%;
 }
+.full-width {
+	width: 100%;
+}
 .active-tag {
 	color: var(--primary-color);
 	background-color: var(--hover-color);
