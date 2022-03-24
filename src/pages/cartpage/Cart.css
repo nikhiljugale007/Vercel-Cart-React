@@ -1,5 +1,6 @@
 .cart-page {
 	top: 8rem;
+	position: relative;
 }
 .grid-2x2 {
 	grid-template-columns: 1fr 1fr;
