@@ -12,7 +12,7 @@ const ProductCard = ({ card_type }) => {
 					/>
 					<button className="btn btn-icon ecommerce-chip-right wishlist">
 						{card_type === "wishlist_card" ? (
-							<i class="fa fa-times-circle" aria-hidden="true"></i>
+							<i class="fa fa-times-circle fa-2x " aria-hidden="true"></i>
 						) : (
 							<i className="fa fa-heart" aria-hidden="true"></i>
 						)}
