@@ -1,0 +1,9 @@
+.wishlist-page {
+	top: 8rem;
+	position: relative;
+}
+@media screen and (min-width: 992px) {
+	.grid-4-responsive {
+		margin-left: 1rem;
+	}
+}

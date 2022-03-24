@@ -1,5 +1,5 @@
 import "./ProductCard.css";
-const ProductCard = () => {
+const ProductCard = ({ card_type }) => {
 	return (
 		<>
 			<div className="card">
@@ -10,8 +10,12 @@ const ProductCard = () => {
 						src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/16859196/2022/1/18/bcc4d322-6227-4601-a5f4-44dee3aafd551642484853447ALDOMenWhiteColourblockedSneakers1.jpg"
 						alt="footware"
 					/>
-					<button className="btn btn-icon ecommerce-chip-right wishlisted">
-						<i className="fa fa-heart" aria-hidden="true"></i>
+					<button className="btn btn-icon ecommerce-chip-right wishlist">
+						{card_type === "wishlist_card" ? (
+							<i class="fa fa-times-circle fa-2x " aria-hidden="true"></i>
+						) : (
+							<i className="fa fa-heart" aria-hidden="true"></i>
+						)}
 					</button>
 				</div>
 				<div className="card-body">
