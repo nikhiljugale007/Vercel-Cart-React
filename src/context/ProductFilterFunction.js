@@ -35,11 +35,11 @@ const filterByStock = (products, includeOutOfStock) => {
 		? products
 		: products.filter((product) => product.inStock);
 };
-const filterByDelivery = (products, fastDelivery) => {
-	return fastDelivery
-		? products.filter((product) => product.fastDelivery)
-		: products;
-};
+// const filterByDelivery = (products, fastDelivery) => {
+// 	return fastDelivery
+// 		? products.filter((product) => product.fastDelivery)
+// 		: products;
+// };
 
 const getFilteredData = (products, dataFilter) => {
 	const ratingSortedData = filterByRating(products, dataFilter.rating);

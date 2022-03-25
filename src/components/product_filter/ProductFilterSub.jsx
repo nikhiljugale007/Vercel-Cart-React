@@ -31,7 +31,9 @@ const ProductFilterSub = () => {
 		let updatedCategry = productState.dataFilter.categories;
 		let find = updatedCategry.indexOf(changedCategory);
 		if (find > -1) {
-			updatedCategry = updatedCategry.filter((item) => item != changedCategory);
+			updatedCategry = updatedCategry.filter(
+				(item) => item !== changedCategory
+			);
 		} else {
 			updatedCategry.push(changedCategory);
 		}
