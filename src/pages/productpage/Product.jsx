@@ -3,8 +3,6 @@ import { ProductFilter, ProductCard } from "../../components";
 import { useProductContext } from "../../context/ProductContext";
 const Product = () => {
 	const { filteredData, productState } = useProductContext();
-	console.log(productState);
-	console.log(filteredData);
 	return (
 		<div className="product-page full-width">
 			<ProductFilter />

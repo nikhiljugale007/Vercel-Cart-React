@@ -42,7 +42,6 @@ const filterByDelivery = (products, fastDelivery) => {
 };
 
 const getFilteredData = (products, dataFilter) => {
-	console.log(dataFilter);
 	const ratingSortedData = filterByRating(products, dataFilter.rating);
 	const stockSortedData = filterByStock(
 		ratingSortedData,
