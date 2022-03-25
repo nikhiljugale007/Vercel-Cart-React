@@ -1,8 +1,14 @@
 import "./FilterInput.css";
-const RadioInput = ({ label }) => {
+const RadioInput = ({ label, onChangeHandler, isChecked, value }) => {
 	return (
-		<label htmlFor="radioinput">
-			<input type="radio" id="radioinput" />
+		<label htmlFor={value}>
+			<input
+				type="radio"
+				id={value}
+				value={value}
+				onChange={onChangeHandler}
+				checked={isChecked}
+			/>
 			<span className="typo-subtext label-text">{label}</span>
 		</label>
 	);

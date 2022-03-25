@@ -1,5 +1,6 @@
 import "./ProductCard.css";
-const ProductCard = ({ card_type }) => {
+const ProductCard = ({ card_type, product }) => {
+	const { title, brand, price, original_price, rating } = product;
 	return (
 		<>
 			<div className="card">
@@ -19,11 +20,11 @@ const ProductCard = ({ card_type }) => {
 					</button>
 				</div>
 				<div className="card-body">
-					<p className="typo-label">Semi formal shoes</p>
+					<p className="typo-label">{title}</p>
 					<div className="flex-hz-space-bw">
-						<p className="typo-subtext">Sold By : Red Tape</p>
+						<p className="typo-subtext">Sold By : {brand}</p>
 						<div className="star-rating-view">
-							<span className="rating-text">4.4</span>
+							<span className="rating-text">{rating}</span>
 							<span className="rating-icon">
 								<i className="fa fa-star fa-md" aria-hidden="true"></i>
 							</span>
@@ -32,9 +33,13 @@ const ProductCard = ({ card_type }) => {
 						</div>
 					</div>
 					<p className="text-bold">
-						Rs. 1499
-						<span className="typo-subtext text-line-through">Rs 5999</span>
-						<span className="typo-subtext text-primary">75% off</span>
+						Rs. {price}
+						<span className="typo-subtext text-line-through">
+							Rs {original_price + "   "}
+						</span>
+						<span className="typo-subtext text-primary">
+							{((original_price - price) / price) * 100}% off
+						</span>
 					</p>
 
 					<div className="card-footer-container ecommerce-card-footer">

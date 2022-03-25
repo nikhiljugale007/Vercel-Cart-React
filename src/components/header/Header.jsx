@@ -9,10 +9,10 @@ const Header = () => {
 					<button className="btn btn-primary btn-icon btn-menu">
 						<i className="fa fa-bars fa-lg" aria-hidden="true"></i>
 					</button>
-					<Link to="/home" className="btn btn-link btn-hide header-link">
+					<Link to="/" className="btn btn-link btn-hide header-link">
 						<img className="img-round logo-container" src={logo} alt="logo" />
 					</Link>
-					<Link to="/home" className="btn btn-link header-link">
+					<Link to="/" className="btn btn-link header-link">
 						Home
 					</Link>
 					<Link to="/product" className="btn btn-link btn-hide header-link">
