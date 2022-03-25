@@ -21,15 +21,4 @@ export const data = [
 		inStock: true,
 		id: "2",
 	},
-	{
-		_id: "91ea6d56-2ef2-46a8-a028-0d397d825d8d",
-		title: "Running shoes",
-		brand: "Puma",
-		price: "500",
-		original_price: "800",
-		categoryName: "Running Shoes",
-		rating: 2,
-		inStock: false,
-		id: "3",
-	},
 ];
