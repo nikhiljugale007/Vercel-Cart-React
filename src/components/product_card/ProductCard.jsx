@@ -7,7 +7,8 @@ import {
 import { useProductContext } from "../../context/ProductContext";
 import { Link } from "react-router-dom";
 const ProductCard = ({ card_type, product }) => {
-	const { _id, title, brand, price, original_price, rating } = product;
+	const { _id, title, brand, image_src, price, original_price, rating } =
+		product;
 	const { productState, productDispatch } = useProductContext();
 
 	const addItemToWishlist = async () => {
@@ -42,7 +43,7 @@ const ProductCard = ({ card_type, product }) => {
 					<span className="text-badge ecommerce-chip-left"> Trending </span>
 					<img
 						className="card-img-container img-responsive"
-						src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/16859196/2022/1/18/bcc4d322-6227-4601-a5f4-44dee3aafd551642484853447ALDOMenWhiteColourblockedSneakers1.jpg"
+						src={image_src}
 						alt="footware"
 					/>
 
