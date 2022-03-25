@@ -14,7 +14,7 @@ const Cart = () => {
 				: productDispatch({ type: "SET_CART", payload: [] });
 		};
 		getCartData();
-	}, []);
+	}, [productDispatch]);
 	return (
 		<div className="cart-page">
 			<p className="typo-title flex-hz-center p-2">

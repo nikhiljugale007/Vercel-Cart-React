@@ -14,7 +14,7 @@ const Wishlist = () => {
 				: productDispatch({ type: "SET_WISHLIST", payload: [] });
 		};
 		getWishlistData();
-	}, []);
+	}, [productDispatch]);
 	return (
 		<div className="wishlist-page">
 			<p className="typo-title flex-hz-center p-2">

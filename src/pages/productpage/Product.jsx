@@ -16,7 +16,7 @@ const Product = () => {
 				: productDispatch({ type: "SET_PRODUCTS", payload: [] });
 		};
 		getData();
-	}, []);
+	}, [productDispatch]);
 	return (
 		<div className="product-page full-width">
 			<ProductFilter />
