@@ -46,7 +46,10 @@ const ProductFilterSub = () => {
 				<label className="typo-subtext text-bold" htmlFor="volume">
 					Price
 				</label>
-				<PriceRangeInput onChangeHandler={priceRangeChangeHandler} />
+				<PriceRangeInput
+					value={productState.dataFilter.maxPrice}
+					onChangeHandler={priceRangeChangeHandler}
+				/>
 			</div>
 			<hr />
 

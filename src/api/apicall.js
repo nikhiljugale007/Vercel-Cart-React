@@ -1,6 +1,8 @@
 import axios from "axios";
 const auth =
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E";
+const headers = { authorization: auth };
+
 const getAllProducts = async () => {
 	try {
 		const response = await axios.get("/api/products");
@@ -12,7 +14,6 @@ const getAllProducts = async () => {
 };
 
 const getWishlist = async () => {
-	const headers = { authorization: auth };
 	try {
 		const response = await axios.get("/api/user/wishlist", { headers });
 		console.log(response);
@@ -23,9 +24,7 @@ const getWishlist = async () => {
 	}
 };
 
-const addToWishlist = async (wishlisted_item) => {
-	const headers = { authorization: auth };
-	const product = wishlisted_item;
+const addToWishlist = async (product) => {
 	try {
 		const response = await axios.post(
 			"/api/user/wishlist",
@@ -39,7 +38,6 @@ const addToWishlist = async (wishlisted_item) => {
 	}
 };
 const removeFromWishlist = async (item_id) => {
-	const headers = { authorization: auth };
 	try {
 		const response = await axios.delete(`/api/user/wishlist/${item_id}`, {
 			headers,
@@ -51,7 +49,6 @@ const removeFromWishlist = async (item_id) => {
 	}
 };
 const getCart = async () => {
-	const headers = { authorization: auth };
 	try {
 		const response = await axios.get("/api/user/cart", { headers });
 		return { cart: response.data.cart, success: true };
@@ -60,9 +57,7 @@ const getCart = async () => {
 		return { cart: [], success: false };
 	}
 };
-const addToCart = async (carted_item) => {
-	const headers = { authorization: auth };
-	const product = carted_item;
+const addToCart = async (product) => {
 	try {
 		const response = await axios.post(
 			"/api/user/cart",

@@ -15,7 +15,7 @@ const initialContextValue = {
 		categories: [],
 		rating: 0,
 		minPrice: 0,
-		maxPrice: null,
+		maxPrice: 1000,
 	},
 };
 

@@ -18,7 +18,7 @@ const Cart = () => {
 	return (
 		<div className="cart-page">
 			<p className="typo-title flex-hz-center p-2">
-				My Cart {"(" + productState.cart.length + " items)"}
+				My Cart {`( ${productState.cart.length} items)`}
 			</p>
 			<div class="grid grid-2x2">
 				<div class="item-section">

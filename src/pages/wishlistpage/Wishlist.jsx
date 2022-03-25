@@ -18,7 +18,7 @@ const Wishlist = () => {
 	return (
 		<div className="wishlist-page">
 			<p className="typo-title flex-hz-center p-2">
-				My Wishlist {"(" + productState.wishlist.length + " items)"}
+				My Wishlist {`(  ${productState.wishlist.length} items)`}
 			</p>
 			<div className="grid grid-4-responsive">
 				{productState.wishlist.map((product) => (
