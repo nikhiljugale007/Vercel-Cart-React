@@ -1,12 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
 import { productReducerFunction } from "./ProductReducerFunction";
-import { data } from "./data";
 import { getFilteredData } from "./ProductFilterFunction";
 
 const ProductContext = createContext();
 
 const initialContextValue = {
-	products: data,
+	products: [],
 	wishlist: [],
 	cart: [],
 	categories: ["Formal Shoes", "Casual Shoes", "Running Shoes"],
@@ -16,7 +15,7 @@ const initialContextValue = {
 		categories: [],
 		rating: 0,
 		minPrice: 0,
-		maxPrice: null,
+		maxPrice: 1000,
 	},
 };
 

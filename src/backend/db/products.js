@@ -6,25 +6,34 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const products = [
-  {
-    _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
-  },
-  {
-    _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
-  },
-  {
-    _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
-  },
+	{
+		_id: uuid(),
+		title: "Formal Shoes",
+		brand: "Woodland",
+		price: 100,
+		original_price: 200,
+		categoryName: "Formal Shoes",
+		rating: 4,
+		inStock: true,
+	},
+	{
+		_id: uuid(),
+		title: "Sneakers",
+		brand: "Nike",
+		price: 500,
+		original_price: 1000,
+		categoryName: "Casual Shoes",
+		rating: 3,
+		inStock: true,
+	},
+	{
+		_id: uuid(),
+		title: "Running shoes",
+		brand: "Puma",
+		price: 800,
+		original_price: 1200,
+		categoryName: "Running Shoes",
+		rating: 3,
+		inStock: false,
+	},
 ];

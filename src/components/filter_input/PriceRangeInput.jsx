@@ -1,4 +1,4 @@
-const PriceRangeInput = ({ onChangeHandler }) => {
+const PriceRangeInput = ({ value, onChangeHandler }) => {
 	return (
 		<div className="slider-container">
 			<label className="typo-subtext" htmlFor="volume">
@@ -10,6 +10,7 @@ const PriceRangeInput = ({ onChangeHandler }) => {
 				name="volume"
 				min="0"
 				max="1000"
+				value={value}
 				onChange={onChangeHandler}
 			/>
 			<label className="typo-subtext" htmlFor="volume">

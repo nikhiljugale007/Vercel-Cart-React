@@ -39,7 +39,22 @@ const productReducerFunction = (state, action) => {
 					maxPrice: null,
 				},
 			};
+		case "SET_PRODUCTS":
+			return {
+				...state,
+				products: action.payload,
+			};
+		case "SET_WISHLIST":
+			return {
+				...state,
+				wishlist: action.payload,
+			};
 
+		case "SET_CART":
+			return {
+				...state,
+				cart: action.payload,
+			};
 		default:
 			return state;
 	}

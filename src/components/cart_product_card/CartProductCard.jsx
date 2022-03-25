@@ -1,5 +1,7 @@
 import "./CartProductCard.css";
-const CartProductCard = () => {
+const CartProductCard = ({ product }) => {
+	const { title, brand, price, original_price } = product;
+
 	return (
 		<div className="card horizontal-card">
 			<img
@@ -8,12 +10,15 @@ const CartProductCard = () => {
 				alt="shoes"
 			/>
 			<div className="card-body">
-				<h2 className="card-heading">Running shoes</h2>
-				<h3 className="card-subheading">by Nike</h3>
+				<h2 className="card-heading">{title}</h2>
+				<h3 className="card-subheading">by {brand}</h3>
 				<p className="pv-1 flex-hz">
-					<p className="typo-label">Rs. 1499 </p>
-					<p className="typo-subtext text-line-through">Rs 5999</p>
-					<p className="typo-subtext text-primary">75% off</p>
+					<p className="typo-label">Rs. {price}</p>
+					<p className="typo-subtext text-line-through">Rs {original_price}</p>
+					<p className="typo-subtext text-primary">
+						{Math.round(((original_price - price) / original_price) * 100)} %
+						off
+					</p>
 				</p>
 				<div className="item-counter">
 					<p className="typo-subtext temo1">Quantity: </p>

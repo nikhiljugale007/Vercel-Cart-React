@@ -28,8 +28,9 @@ const Home = () => {
 					<p className="h1">Todays top deals</p>
 				</div>
 				<div className="grid grid-auto">
-					{todays_deals.map((item) => (
+					{todays_deals.map((item, index) => (
 						<DiscountCard
+							key={index}
 							card_title={item.item_name}
 							card_subtitle={item.offer}
 							image_src={item.image_src}
@@ -44,8 +45,9 @@ const Home = () => {
 					<p>Check out which categories are trending right out and then shop</p>
 				</div>
 				<div className="grid grid-4-responsive">
-					{top_categories.map((item) => (
+					{top_categories.map((item, index) => (
 						<AdvCard
+							key={index}
 							card_title={item.category_name}
 							image_src={item.image_src}
 							image_alt={item.image_alt}
@@ -60,8 +62,9 @@ const Home = () => {
 				</div>
 
 				<div className="grid grid-4-responsive">
-					{top_brands.map((item) => (
+					{top_brands.map((item, index) => (
 						<AdvCard
+							key={index}
 							card_title={item.brand_name}
 							image_src={item.image_src}
 							image_alt={item.image_alt}
