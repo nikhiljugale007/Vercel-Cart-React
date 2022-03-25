@@ -7,12 +7,6 @@ import { getCategories } from "../../api/apicall";
 import { useEffect, useState } from "react";
 const ProductFilterSub = () => {
 	const [categories, setCategories] = useState([]);
-	const categoryOptions = [
-		"Formal Shoes",
-		"Casual Shoes",
-		"Festival Shoes",
-		"Running Shoes",
-	];
 
 	useEffect(() => {
 		const getCategoryData = async () => {
