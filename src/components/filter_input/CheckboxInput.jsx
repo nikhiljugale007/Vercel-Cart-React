@@ -1,8 +1,13 @@
 import "./FilterInput.css";
-const CheckboxInput = ({ label }) => {
+const CheckboxInput = ({ label, onChangeHandler }) => {
 	return (
-		<label htmlFor="checkboxinput">
-			<input type="checkbox" id="checkboxinput" />
+		<label htmlFor={label}>
+			<input
+				type="checkbox"
+				id={label}
+				onChange={onChangeHandler}
+				value={label}
+			/>
 			<span className="typo-subtext label-text">{label}</span>
 		</label>
 	);

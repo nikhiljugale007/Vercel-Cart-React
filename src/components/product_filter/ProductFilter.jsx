@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useProductContext } from "../../context/ProductContext";
 import "./ProductFilter.css";
 import { ProductFilterSub } from "./ProductFilterSub";
+
 const ProductFilter = () => {
 	const [mobileSidebar, setMobileSidebar] = useState(false);
-
+	const { productDispatch } = useProductContext();
+	const resetFilter = () => {
+		productDispatch({ type: "RESET_FILTER" });
+	};
 	return (
 		<>
 			<div className="sidebar-section">
@@ -25,20 +30,15 @@ const ProductFilter = () => {
 					</div>
 				</div>
 				<div className={mobileSidebar ? "mobile-sidebar" : "desktop-sidebar"}>
-					<div className="flex-hz-space-bw ">
-						<div
-							className="btn btn-text"
-							onClick={() => mobileSidebar && setMobileSidebar(false)}
-						>
-							Apply
-						</div>
-						<button
-							className="btn btn-text"
-							onClick={() => mobileSidebar && setMobileSidebar(false)}
-						>
-							clear all
-						</button>
-					</div>
+					<button
+						className="btn btn-text"
+						onClick={() => {
+							mobileSidebar && setMobileSidebar(false);
+							resetFilter();
+						}}
+					>
+						clear all
+					</button>
 					<hr />
 					{/* product filter sub contain all filter */}
 					<ProductFilterSub />
