@@ -1,5 +1,5 @@
 import { logo } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { useProductContext } from "../../context/ProductContext";
 const Header = () => {
@@ -11,15 +11,15 @@ const Header = () => {
 					<button className="btn btn-primary btn-icon btn-menu">
 						<i className="fa fa-bars fa-lg" aria-hidden="true"></i>
 					</button>
-					<Link to="/" className="btn btn-link btn-hide header-link">
+					<NavLink to="/" className="btn btn-link btn-hide header-link">
 						<img className="img-round logo-container" src={logo} alt="logo" />
-					</Link>
-					<Link to="/" className="btn btn-link header-link">
+					</NavLink>
+					<NavLink to="/" className="btn btn-link header-link">
 						Home
-					</Link>
-					<Link to="/product" className="btn btn-link btn-hide header-link">
+					</NavLink>
+					<NavLink to="/product" className="btn btn-link btn-hide header-link">
 						Shop
-					</Link>
+					</NavLink>
 				</div>
 				<div className="search-container btn-hide">
 					<button className="btn btn-icon">
@@ -33,7 +33,7 @@ const Header = () => {
 				</div>
 
 				<div className="header-sub-container">
-					<Link to="/wishlist" className="link-no-style">
+					<NavLink to="/wishlist" className="link-no-style">
 						<button className="btn btn-primary btn-icon btn-hide">
 							<i className="far fa-heart fa-2x badge-parent">
 								<span className="badge-content badge-itself">
@@ -41,8 +41,8 @@ const Header = () => {
 								</span>
 							</i>
 						</button>
-					</Link>
-					<Link to="/cart" className="link-no-style">
+					</NavLink>
+					<NavLink to="/cart" className="link-no-style">
 						<button className="btn btn-primary btn-icon btn-hide">
 							<i className="fas fa-shopping-basket fa-2x badge-parent">
 								<span className="badge-content badge-itself">
@@ -50,12 +50,12 @@ const Header = () => {
 								</span>
 							</i>
 						</button>
-					</Link>
-					<Link to="/" className="link-no-style">
+					</NavLink>
+					<NavLink to="/" className="link-no-style">
 						<button className="btn btn-primary btn-icon">
 							<i className="far fa-user-circle fa-2x"></i>
 						</button>
-					</Link>
+					</NavLink>
 				</div>
 			</header>
 		</div>

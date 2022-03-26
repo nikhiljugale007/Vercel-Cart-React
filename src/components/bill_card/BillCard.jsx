@@ -19,51 +19,51 @@ const BillCard = () => {
 		setBill(temp_bill);
 	}, [productState]);
 	return (
-		<div class="card bill-card">
-			<div class="card-body">
-				<p class="typo-label">Price Details</p>
+		<div className="card bill-card">
+			<div className="card-body">
+				<p className="typo-label">Price Details</p>
 			</div>
 			<hr />
-			<div class="card-body">
-				<div class="bill-item">
-					<p class="typo-subtext">
+			<div className="card-body">
+				<div className="bill-item">
+					<p className="typo-subtext">
 						Price {`( ${productState.cart.length} items)`}
 					</p>
-					<p class="typo-subtext">Rs {bill.totalPrice}</p>
+					<p className="typo-subtext">Rs {bill.totalPrice}</p>
 				</div>
 
-				<div class="bill-item">
-					<p class="typo-subtext">Original Price</p>
-					<p class="typo-subtext">Rs {bill.totalOriginalPrice}</p>
+				<div className="bill-item">
+					<p className="typo-subtext">Original Price</p>
+					<p className="typo-subtext">Rs {bill.totalOriginalPrice}</p>
 				</div>
-				<div class="bill-item">
-					<p class="typo-subtext">Delivery charges</p>
-					<p class="typo-subtext">Rs {bill.deliveryCharges}</p>
+				<div className="bill-item">
+					<p className="typo-subtext">Delivery charges</p>
+					<p className="typo-subtext">Rs {bill.deliveryCharges}</p>
 				</div>
 				<hr />
-				<div class="bill-item">
-					<p class="typo-subtext text-bold">Total Amount</p>
-					<p class="typo-subtext">
+				<div className="bill-item">
+					<p className="typo-subtext text-bold">Total Amount</p>
+					<p className="typo-subtext">
 						Rs {bill.totalPrice + bill.deliveryCharges}
 					</p>
 				</div>
 				<hr />
-				<div class="bill-item">
-					<p class="typo-label typo-subtext">
-						<i class="fas fa-tags"></i>
+				<div className="bill-item">
+					<p className="typo-label typo-subtext">
+						<i className="fas fa-tags"></i>
 						Use Coupon
 					</p>
-					<button class="btn btn-success p-0">Apply</button>
+					<button className="btn btn-success p-0">Apply</button>
 				</div>
 				<hr />
 
-				<div class="bill-item-vertical">
-					<p class="typo-subtext">
+				<div className="bill-item-vertical">
+					<p className="typo-subtext">
 						You will save Rs {bill.totalOriginalPrice - bill.totalPrice} on this
 						order
 					</p>
-					<div class="bill-item">
-						<button class="btn btn-primary full-width ">Place Order</button>
+					<div className="bill-item">
+						<button className="btn btn-primary full-width ">Place Order</button>
 					</div>
 				</div>
 			</div>

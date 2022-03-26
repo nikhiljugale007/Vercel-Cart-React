@@ -20,13 +20,13 @@ const Cart = () => {
 			<p className="typo-title flex-hz-center p-2">
 				My Cart {`( ${productState.cart.length} items)`}
 			</p>
-			<div class="grid grid-2x2">
-				<div class="item-section">
+			<div className="grid grid-2x2">
+				<div className="item-section">
 					{productState.cart.map((product, index) => (
 						<CartProductCard product={product} key={index} />
 					))}
 				</div>
-				<div class="bill-section">
+				<div className="bill-section">
 					<BillCard />
 				</div>
 			</div>

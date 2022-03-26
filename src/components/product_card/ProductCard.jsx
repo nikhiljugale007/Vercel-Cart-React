@@ -48,28 +48,25 @@ const ProductCard = ({ card_type, product }) => {
 					/>
 
 					{card_type === "wishlist_card" ? (
-						<button className="btn  btn-icon ecommerce-chip-right">
-							<i
-								class="fa fa-times-circle fa-2x "
-								aria-hidden="true"
-								onClick={removeItemFromWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right"
+							onClick={removeItemFromWishlist}
+						>
+							<i className="fa fa-times-circle fa-2x " aria-hidden="true"></i>
 						</button>
 					) : checkItemInWishlist() ? (
-						<button className="btn  btn-icon ecommerce-chip-right wishlisted">
-							<i
-								className="fa fa-heart"
-								aria-hidden="true"
-								onClick={removeItemFromWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right wishlisted"
+							onClick={removeItemFromWishlist}
+						>
+							<i className="fa fa-heart" aria-hidden="true"></i>
 						</button>
 					) : (
-						<button className="btn  btn-icon ecommerce-chip-right">
-							<i
-								className="fa fa-heart"
-								aria-hidden="true"
-								onClick={addItemToWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right"
+							onClick={addItemToWishlist}
+						>
+							<i className="fa fa-heart" aria-hidden="true"></i>
 						</button>
 					)}
 				</div>
@@ -86,7 +83,7 @@ const ProductCard = ({ card_type, product }) => {
 							<span className="rating-text">5</span>
 						</div>
 					</div>
-					<p className="text-bold">
+					<p className="typo-subtext text-bold">
 						Rs. {price}
 						<span className="typo-subtext text-line-through">
 							Rs {original_price + "   "}
