@@ -70,6 +70,41 @@ const addToCart = async (product) => {
 		return { getCart: [], success: false };
 	}
 };
+const removeFromCart = async (item_id) => {
+	try {
+		const response = await axios.delete(`/api/user/cart/${item_id}`, {
+			headers,
+		});
+		return { cart: response.data.cart, success: true };
+	} catch (err) {
+		console.log(err);
+		return { cart: [], success: false };
+	}
+};
+const changeQuantity = async (item_id, type) => {
+	try {
+		const response = await axios.post(
+			`/api/user/cart/${item_id}`,
+			{ action: { type: type } },
+			{
+				headers,
+			}
+		);
+		return { cart: response.data.cart, success: true };
+	} catch (err) {
+		console.log(err);
+		return { cart: [], success: false };
+	}
+};
+const getCategories = async () => {
+	try {
+		const response = await axios("/api/categories");
+		return { categories: response.data.categories, success: true };
+	} catch (err) {
+		console.log(err);
+		return { categories: [], success: false };
+	}
+};
 export {
 	getAllProducts,
 	getWishlist,
@@ -77,4 +112,7 @@ export {
 	removeFromWishlist,
 	getCart,
 	addToCart,
+	removeFromCart,
+	changeQuantity,
+	getCategories,
 };

@@ -7,7 +7,8 @@ import {
 import { useProductContext } from "../../context/ProductContext";
 import { Link } from "react-router-dom";
 const ProductCard = ({ card_type, product }) => {
-	const { _id, title, brand, price, original_price, rating } = product;
+	const { _id, title, brand, image_src, price, original_price, rating } =
+		product;
 	const { productState, productDispatch } = useProductContext();
 
 	const addItemToWishlist = async () => {
@@ -42,33 +43,30 @@ const ProductCard = ({ card_type, product }) => {
 					<span className="text-badge ecommerce-chip-left"> Trending </span>
 					<img
 						className="card-img-container img-responsive"
-						src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/16859196/2022/1/18/bcc4d322-6227-4601-a5f4-44dee3aafd551642484853447ALDOMenWhiteColourblockedSneakers1.jpg"
+						src={image_src}
 						alt="footware"
 					/>
 
 					{card_type === "wishlist_card" ? (
-						<button className="btn  btn-icon ecommerce-chip-right">
-							<i
-								class="fa fa-times-circle fa-2x "
-								aria-hidden="true"
-								onClick={removeItemFromWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right"
+							onClick={removeItemFromWishlist}
+						>
+							<i className="fa fa-times-circle fa-2x " aria-hidden="true"></i>
 						</button>
 					) : checkItemInWishlist() ? (
-						<button className="btn  btn-icon ecommerce-chip-right wishlisted">
-							<i
-								className="fa fa-heart"
-								aria-hidden="true"
-								onClick={removeItemFromWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right wishlisted"
+							onClick={removeItemFromWishlist}
+						>
+							<i className="fa fa-heart" aria-hidden="true"></i>
 						</button>
 					) : (
-						<button className="btn  btn-icon ecommerce-chip-right">
-							<i
-								className="fa fa-heart"
-								aria-hidden="true"
-								onClick={addItemToWishlist}
-							></i>
+						<button
+							className="btn  btn-icon ecommerce-chip-right"
+							onClick={addItemToWishlist}
+						>
+							<i className="fa fa-heart" aria-hidden="true"></i>
 						</button>
 					)}
 				</div>
@@ -85,7 +83,7 @@ const ProductCard = ({ card_type, product }) => {
 							<span className="rating-text">5</span>
 						</div>
 					</div>
-					<p className="text-bold">
+					<p className="typo-subtext text-bold">
 						Rs. {price}
 						<span className="typo-subtext text-line-through">
 							Rs {original_price + "   "}

@@ -3,13 +3,18 @@ import { RadioInput } from "../filter_input/RadioInput";
 import { CheckboxInput } from "../filter_input/CheckboxInput";
 import { PriceRangeInput } from "../filter_input/PriceRangeInput";
 import { useProductContext } from "../../context/ProductContext";
+import { getCategories } from "../../api/apicall";
+import { useEffect, useState } from "react";
 const ProductFilterSub = () => {
-	const categoryOptions = [
-		"Formal Shoes",
-		"Casual Shoes",
-		"Festival Shoes",
-		"Running Shoes",
-	];
+	const [categories, setCategories] = useState([]);
+
+	useEffect(() => {
+		const getCategoryData = async () => {
+			const response = await getCategories();
+			response.success ? setCategories(response.categories) : setCategories([]);
+		};
+		getCategoryData();
+	}, []);
 	const ratingOptions = [5, 4, 3, 2, 1];
 
 	const { productState, productDispatch } = useProductContext();
@@ -56,11 +61,13 @@ const ProductFilterSub = () => {
 			{/* category filter */}
 			<ul className="list list-style-nostyle">
 				<label className="typo-subtext text-bold">Category</label>
-				{categoryOptions.map((option, index) => (
+				{categories.map((option, index) => (
 					<CheckboxInput
-						label={option}
+						label={option.categoryName}
 						key={index}
-						isChecked={productState.dataFilter.categories.includes(option)}
+						isChecked={productState.dataFilter.categories.includes(
+							option.categoryName
+						)}
 						onChangeHandler={categoryChangeHandler}
 					/>
 				))}
