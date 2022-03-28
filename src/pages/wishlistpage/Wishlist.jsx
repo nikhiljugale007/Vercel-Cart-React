@@ -3,10 +3,15 @@ import { ProductCard } from "../../components";
 import { useEffect } from "react";
 import { getWishlist } from "../../api/apicall";
 import { useProductContext } from "../../context/ProductContext";
+import { useNavigate } from "react-router";
+
 const Wishlist = () => {
 	const { productState, productDispatch } = useProductContext();
-
+	const navigate = useNavigate();
 	useEffect(() => {
+		if (!localStorage.getItem("token")) {
+			navigate("/login");
+		}
 		const getWishlistData = async () => {
 			const response = await getWishlist();
 			response.success
@@ -14,7 +19,7 @@ const Wishlist = () => {
 				: productDispatch({ type: "SET_WISHLIST", payload: [] });
 		};
 		getWishlistData();
-	}, [productDispatch]);
+	}, [productDispatch, navigate]);
 	return (
 		<div className="wishlist-page">
 			<p className="typo-title flex-hz-center p-2">

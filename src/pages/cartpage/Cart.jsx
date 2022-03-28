@@ -3,10 +3,16 @@ import { CartProductCard, BillCard } from "../../components";
 import { useEffect } from "react";
 import { getCart } from "../../api/apicall";
 import { useProductContext } from "../../context/ProductContext";
+import { useNavigate } from "react-router";
+
 const Cart = () => {
 	const { productState, productDispatch } = useProductContext();
+	const navigate = useNavigate();
 
 	useEffect(() => {
+		if (!localStorage.getItem("token")) {
+			navigate("/login");
+		}
 		const getCartData = async () => {
 			const response = await getCart();
 			response.success
@@ -14,7 +20,7 @@ const Cart = () => {
 				: productDispatch({ type: "SET_CART", payload: [] });
 		};
 		getCartData();
-	}, [productDispatch]);
+	}, [productDispatch, navigate]);
 	return (
 		<div className="cart-page">
 			<p className="typo-title flex-hz-center p-2">

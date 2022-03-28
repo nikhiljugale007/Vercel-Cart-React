@@ -28,6 +28,7 @@ const ProductContextProvider = ({ children }) => {
 		productState.products,
 		productState.dataFilter
 	);
+	console.log(productState);
 	return (
 		<ProductContext.Provider
 			value={{ filteredData, productState, productDispatch }}
@@ -39,4 +40,4 @@ const ProductContextProvider = ({ children }) => {
 
 const useProductContext = () => useContext(ProductContext);
 
-export { ProductContextProvider, useProductContext };
+export { ProductContextProvider, useProductContext, initialContextValue };

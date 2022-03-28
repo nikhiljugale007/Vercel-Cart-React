@@ -3,6 +3,25 @@ const auth =
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E";
 const headers = { authorization: auth };
 
+const signupuser = async (user) => {
+	try {
+		const response = await axios.post("/api/auth/signup", { user });
+		return { token: response.data.encodedToken, success: true };
+	} catch (err) {
+		console.log(err);
+		return { token: "", success: false };
+	}
+};
+const loginuser = async (user) => {
+	console.log(user);
+	try {
+		const response = await axios.post("/api/auth/login", { user });
+		return { token: response.data.encodedToken, success: true };
+	} catch (err) {
+		console.log(err);
+		return { token: "", success: false };
+	}
+};
 const getAllProducts = async () => {
 	try {
 		const response = await axios.get("/api/products");
@@ -37,6 +56,7 @@ const addToWishlist = async (product) => {
 		return { wishlist: [], success: false };
 	}
 };
+
 const removeFromWishlist = async (item_id) => {
 	try {
 		const response = await axios.delete(`/api/user/wishlist/${item_id}`, {
@@ -115,4 +135,6 @@ export {
 	removeFromCart,
 	changeQuantity,
 	getCategories,
+	signupuser,
+	loginuser,
 };

@@ -55,6 +55,13 @@ const productReducerFunction = (state, action) => {
 				...state,
 				cart: action.payload,
 			};
+		case "RESET_PRODUCT_STATE":
+			return {
+				...state,
+				products: [],
+				wishlist: [],
+				cart: [],
+			};
 		default:
 			return state;
 	}
