@@ -1,5 +1,5 @@
 const validateForm = (formState) => {
-	const { name, email, password, confirm_password, accept_terms } = formState;
+	const { email, password, confirm_password, accept_terms } = formState;
 	const errors = {};
 	const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 	if (!email) {
