@@ -47,16 +47,12 @@ const SignUp = () => {
 	const signupUser = (e) => {
 		e.preventDefault();
 		const errors = validateForm(signUpFormState);
-		console.log("ERR = ", errors);
 
 		if (Object.keys(errors).length === 0) {
-			console.log(signUpFormState);
 			setFormError(initialSignUpFormState);
 			signUpUserFun();
-			//make api call
 		} else {
 			setFormError(errors);
-			console.log("ERR = ");
 		}
 	};
 

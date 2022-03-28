@@ -1,6 +1,5 @@
 import "./Toast.css";
 const Toast = ({ label }) => {
-	console.log(label);
 	return (
 		<div className="toast snackbar snackbar-primary">
 			{label}

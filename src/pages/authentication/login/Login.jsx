@@ -32,7 +32,6 @@ const Login = () => {
 		const response = await loginuser(loginFormState);
 		if (response.success) {
 			localStorage.setItem("token", response.token);
-			console.log(localStorage.getItem("token"));
 			navigate("/");
 		} else {
 			console.log("SOME ERROR1");
@@ -42,12 +41,10 @@ const Login = () => {
 		e.preventDefault();
 		const errors = validateForm(loginFormState);
 		if (Object.keys(errors).length === 0) {
-			console.log(loginFormState);
 			setFormError(inititalLoginState);
 			loginUserFun();
 		} else {
 			setFormError(errors);
-			console.log("ERR = ", formError);
 		}
 	};
 
@@ -77,6 +74,7 @@ const Login = () => {
 						label={"password"}
 						value={loginFormState.password}
 						onChangeFunction={inputChangeHandler}
+						type={"password"}
 					/>
 					<label className="text-highlight">{formError.password}</label>
 

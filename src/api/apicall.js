@@ -13,7 +13,6 @@ const signupuser = async (user) => {
 	}
 };
 const loginuser = async (user) => {
-	console.log(user);
 	try {
 		const response = await axios.post("/api/auth/login", { user });
 		return { token: response.data.encodedToken, success: true };
@@ -35,7 +34,6 @@ const getAllProducts = async () => {
 const getWishlist = async () => {
 	try {
 		const response = await axios.get("/api/user/wishlist", { headers });
-		console.log(response);
 		return { wishlist: response.data.wishlist, success: true };
 	} catch (err) {
 		console.log(err);
