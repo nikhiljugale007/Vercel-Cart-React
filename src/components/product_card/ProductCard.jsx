@@ -5,30 +5,76 @@ import {
 	addToCart,
 } from "../../api/apicall";
 import { useProductContext } from "../../context/ProductContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Toast } from "../toast/Toast";
 const ProductCard = ({ card_type, product }) => {
 	const { _id, title, brand, image_src, price, original_price, rating } =
 		product;
 	const { productState, productDispatch } = useProductContext();
+	const navigate = useNavigate();
+	const [toast, setToast] = useState({ label: "", val: false });
 
+	const setError = () => {
+		setToast((prev) => ({ ...prev, label: "Some Error Occured", val: true }));
+		setTimeout(() => {
+			setToast((prev) => ({ ...prev, label: "", val: false }));
+		}, 2000);
+	};
+
+	const checkLoggedUser = () => {
+		if (!localStorage.getItem("token")) {
+			navigate("/login");
+		}
+	};
 	const addItemToWishlist = async () => {
+		checkLoggedUser();
+		setToast((prev) => ({ ...prev, label: "Adding To Wishlist", val: true }));
 		const response = await addToWishlist(product);
-		response.success
-			? productDispatch({ type: "SET_WISHLIST", payload: response.wishlist })
-			: productDispatch({ type: "SET_WISHLIST", payload: [] });
+		if (response.success) {
+			productDispatch({ type: "SET_WISHLIST", payload: response.wishlist });
+			setTimeout(() => {
+				setToast((prev) => ({ ...prev, label: "", val: false }));
+			}, 1000);
+		} else {
+			setError();
+			productDispatch({ type: "SET_WISHLIST", payload: [] });
+		}
 	};
 
 	const addItemToCart = async () => {
+		checkLoggedUser();
+		setToast((prev) => ({ ...prev, label: "Adding To Cart", val: true }));
+
 		const response = await addToCart(product);
-		response.success
-			? productDispatch({ type: "SET_CART", payload: response.cart })
-			: productDispatch({ type: "SET_CART", payload: [] });
+		if (response.success) {
+			productDispatch({ type: "SET_CART", payload: response.cart });
+			setTimeout(() => {
+				setToast((prev) => ({ ...prev, label: "", val: false }));
+			}, 1000);
+		} else {
+			setError();
+			productDispatch({ type: "SET_CART", payload: [] });
+		}
 	};
 	const removeItemFromWishlist = async () => {
+		checkLoggedUser();
+		setToast((prev) => ({
+			...prev,
+			label: "Removing Item From Wishlist",
+			val: true,
+		}));
+
 		const response = await removeFromWishlist(_id);
-		response.success
-			? productDispatch({ type: "SET_WISHLIST", payload: response.wishlist })
-			: productDispatch({ type: "SET_WISHLIST", payload: [] });
+		if (response.success) {
+			productDispatch({ type: "SET_WISHLIST", payload: response.wishlist });
+			setTimeout(() => {
+				setToast((prev) => ({ ...prev, val: false }));
+			}, 1000);
+		} else {
+			setError();
+			productDispatch({ type: "SET_WISHLIST", payload: [] });
+		}
 	};
 
 	const checkItemInWishlist = () =>
@@ -38,6 +84,8 @@ const ProductCard = ({ card_type, product }) => {
 		productState.cart.find((item) => item._id === _id);
 	return (
 		<>
+			{toast.val && <Toast label={toast.label} />}
+
 			<div className="card">
 				<div className="badge-image-container">
 					<span className="text-badge ecommerce-chip-left"> Trending </span>

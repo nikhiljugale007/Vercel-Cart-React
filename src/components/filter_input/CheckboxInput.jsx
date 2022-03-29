@@ -1,9 +1,10 @@
 import "./FilterInput.css";
-const CheckboxInput = ({ label, onChangeHandler }) => {
+const CheckboxInput = ({ label, name, onChangeHandler }) => {
 	return (
 		<label htmlFor={label}>
 			<input
 				type="checkbox"
+				name={name}
 				id={label}
 				onChange={onChangeHandler}
 				value={label}
