@@ -5,7 +5,7 @@ import {
 	changeQuantity,
 } from "../../api/apicall";
 import { useProductContext } from "../../context/ProductContext";
-import { Toast } from "../toast/Toast";
+import { Toast } from "../../components";
 import { useState } from "react";
 const CartProductCard = ({ product }) => {
 	const { _id, title, brand, image_src, price, original_price, qty } = product;
@@ -17,7 +17,7 @@ const CartProductCard = ({ product }) => {
 			setToast((prev) => ({ ...prev, label: "", val: false }));
 		}, 2000);
 	};
-	const removeItemToCart = async () => {
+	const removeItemFromWishlist = async () => {
 		setToast((prev) => ({ label: "Removing from Cart", val: true }));
 		const response = await removeFromCart(_id);
 		if (response.success) {
@@ -66,14 +66,14 @@ const CartProductCard = ({ product }) => {
 				<div className="card-body">
 					<h2 className="card-heading">{title}</h2>
 					<h3 className="card-subheading">by {brand}</h3>
-					<p className="pv-1 flex-hz">
+					<p className="price-container">
 						<p className="typo-label">Rs. {price}</p>
 						<p className="typo-subtext text-line-through">
 							Rs {original_price}
 						</p>
 						<p className="typo-subtext text-primary">
-							{Math.round(((original_price - price) / original_price) * 100)} %
-							off
+							({Math.round(((original_price - price) / original_price) * 100)}%
+							off)
 						</p>
 					</p>
 					<div className="item-counter">
@@ -102,8 +102,11 @@ const CartProductCard = ({ product }) => {
 								Move to wishlist
 							</button>
 						)}
-						<button className="btn btn-outlined" onClick={removeItemToCart}>
-							Remove
+						<button
+							className="btn btn-outlined"
+							onClick={removeItemFromWishlist}
+						>
+							Remove From Cart
 						</button>
 					</div>
 				</div>
