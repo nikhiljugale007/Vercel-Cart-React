@@ -89,11 +89,13 @@ const ProductCard = ({ card_type, product }) => {
 			<div className="card">
 				<div className="badge-image-container">
 					<span className="text-badge ecommerce-chip-left"> Trending </span>
-					<img
-						className="card-img-container img-responsive"
-						src={image_src}
-						alt="footware"
-					/>
+					<Link to={`/products/${_id}`}>
+						<img
+							className="card-img-container img-responsive"
+							src={image_src}
+							alt="footware"
+						/>
+					</Link>
 
 					{card_type === "wishlist_card" ? (
 						<button

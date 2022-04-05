@@ -1,6 +1,5 @@
 import axios from "axios";
-const auth =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E";
+const auth = localStorage.getItem("token");
 const headers = { authorization: auth };
 
 const signupuser = async (user) => {
@@ -25,6 +24,16 @@ const getAllProducts = async () => {
 		return { products: response.data.products, success: true };
 	} catch (err) {
 		return { products: [], success: false };
+	}
+};
+const getSingleProduct = async (_id) => {
+	try {
+		const response = await axios.get(`/api/products/${_id}`);
+		console.log(response);
+		return { product: [], success: true };
+	} catch (err) {
+		console.log("ERR", err);
+		return { product: [], success: false };
 	}
 };
 
@@ -114,6 +123,7 @@ const getCategories = async () => {
 };
 export {
 	getAllProducts,
+	getSingleProduct,
 	getWishlist,
 	addToWishlist,
 	removeFromWishlist,
