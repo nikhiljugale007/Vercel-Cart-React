@@ -53,6 +53,14 @@ const Login = () => {
 		setLoginFormState((prev) => ({ ...prev, ...new_val }));
 	};
 
+	const fillDemoCredentials = () => {
+		setLoginFormState((prev) => ({
+			...prev,
+			email: "adarshbalika@gmail.com",
+			password: "adarshBalika123",
+		}));
+	};
+
 	useEffect(() => {
 		if (localStorage.getItem("token")) {
 			navigate("/profile");
@@ -87,6 +95,9 @@ const Login = () => {
 					</label>
 					<button type="submit" className="btn btn-primary">
 						Login
+					</button>
+					<button className="btn btn-primary" onClick={fillDemoCredentials}>
+						Login With Demo Credentials
 					</button>
 					<Link to="/signup" className="link-no-style">
 						<button className="btn btn-link full-width">

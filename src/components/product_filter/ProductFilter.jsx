@@ -21,24 +21,33 @@ const ProductFilter = () => {
 						>
 							Filter
 						</button>
-						<button
-							className="btn btn-text"
-							onClick={() => setMobileSidebar(false)}
-						>
+						<button className="btn btn-text" onClick={() => resetFilter()}>
 							clear all
 						</button>
 					</div>
 				</div>
 				<div className={mobileSidebar ? "mobile-sidebar" : "desktop-sidebar"}>
-					<button
-						className="btn btn-text"
-						onClick={() => {
-							mobileSidebar && setMobileSidebar(false);
-							resetFilter();
-						}}
-					>
-						clear all
-					</button>
+					<div className="flex">
+						<button
+							className="btn btn-text"
+							onClick={() => {
+								mobileSidebar && setMobileSidebar(false);
+								resetFilter();
+							}}
+						>
+							clear all
+						</button>
+						{mobileSidebar && (
+							<button
+								className="btn btn-text"
+								onClick={() => {
+									setMobileSidebar(false);
+								}}
+							>
+								close
+							</button>
+						)}
+					</div>
 					<hr />
 					{/* product filter sub contain all filter */}
 					<ProductFilterSub />

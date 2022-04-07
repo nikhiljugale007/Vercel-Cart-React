@@ -3,7 +3,12 @@ import "./Home.css";
 import { AdvCard, DiscountCard } from "../../components";
 import { todays_deals, top_brands, top_categories } from "./HomePageData";
 import { hero1 } from "../../assets";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
+	const navigate = useNavigate();
+	const navigateToProductPage = () => {
+		navigate("/product");
+	};
 	return (
 		<main>
 			<div className="hero-section">
@@ -16,7 +21,9 @@ const Home = () => {
 							affordable price. No cost EMI. Complete Protection. Exchange
 							offer.
 						</p>
-						<button className="btn btn-primary">Explore now</button>
+						<Link to="/product" className="link-no-style">
+							<button className="btn btn-primary">Explore now</button>
+						</Link>
 					</div>
 					<div className="img-section">
 						<img className="img-responsive" alt="hero" src={hero1} />
@@ -29,13 +36,14 @@ const Home = () => {
 				</div>
 				<div className="grid grid-auto">
 					{todays_deals.map((item, index) => (
-						<DiscountCard
-							key={index}
-							card_title={item.item_name}
-							card_subtitle={item.offer}
-							image_src={item.image_src}
-							image_alt={item.image_alt}
-						/>
+						<div onClick={navigateToProductPage} key={index}>
+							<DiscountCard
+								card_title={item.item_name}
+								card_subtitle={item.offer}
+								image_src={item.image_src}
+								image_alt={item.image_alt}
+							/>
+						</div>
 					))}
 				</div>
 			</div>
@@ -46,12 +54,13 @@ const Home = () => {
 				</div>
 				<div className="grid grid-4-responsive">
 					{top_categories.map((item, index) => (
-						<AdvCard
-							key={index}
-							card_title={item.category_name}
-							image_src={item.image_src}
-							image_alt={item.image_alt}
-						/>
+						<div onClick={navigateToProductPage} key={index}>
+							<AdvCard
+								card_title={item.category_name}
+								image_src={item.image_src}
+								image_alt={item.image_alt}
+							/>
+						</div>
 					))}
 				</div>
 			</div>
