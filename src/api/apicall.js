@@ -13,7 +13,10 @@ const signupuser = async (user) => {
 };
 const loginuser = async (user) => {
 	try {
-		const response = await axios.post("/api/auth/login", { user });
+		const response = await axios.post("/api/auth/login", {
+			email: user.email,
+			password: user.password,
+		});
 		return { token: response.data.encodedToken, success: true };
 	} catch (err) {
 		return { token: "", success: false };

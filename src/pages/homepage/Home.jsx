@@ -3,6 +3,7 @@ import "./Home.css";
 import { AdvCard, DiscountCard } from "../../components";
 import { todays_deals, top_brands, top_categories } from "./HomePageData";
 import { hero1 } from "../../assets";
+import { Link } from "react-router-dom";
 const Home = () => {
 	return (
 		<main>
@@ -16,7 +17,9 @@ const Home = () => {
 							affordable price. No cost EMI. Complete Protection. Exchange
 							offer.
 						</p>
-						<button className="btn btn-primary">Explore now</button>
+						<Link to="/product" className="link-no-style">
+							<button className="btn btn-primary">Explore now</button>
+						</Link>
 					</div>
 					<div className="img-section">
 						<img className="img-responsive" alt="hero" src={hero1} />
