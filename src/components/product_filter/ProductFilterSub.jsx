@@ -43,6 +43,9 @@ const ProductFilterSub = () => {
     }
     productDispatch({ type: "CATEGORY_FILTER", payload: updatedCategry });
   };
+  const checkCategoryIsChecked = ({ category }) => {
+    return productState.dataFilter.categories.includes(category);
+  };
   return (
     <div>
       {/* price range filter */}
@@ -65,9 +68,9 @@ const ProductFilterSub = () => {
           <CheckboxInput
             label={option.categoryName}
             key={index}
-            isChecked={productState.dataFilter.categories.includes(
-              option.categoryName
-            )}
+            isChecked={checkCategoryIsChecked({
+              category: option.categoryName,
+            })}
             onChangeHandler={categoryChangeHandler}
           />
         ))}
