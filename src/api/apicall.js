@@ -1,7 +1,5 @@
 import axios from "axios";
-const auth =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E";
-const headers = { authorization: auth };
+const headers = { authorization: localStorage.getItem("token") };
 
 const signupuser = async (user) => {
   try {
