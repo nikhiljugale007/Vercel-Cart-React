@@ -15,10 +15,22 @@ const loginuser = async (user) => {
       email: user.email,
       password: user.password,
     });
-    return { token: response.data.encodedToken, success: true };
+    return {
+      user: response.data.foundUser,
+      token: response.data.encodedToken,
+      success: true,
+    };
   } catch (err) {
     console.log(err);
     return { token: "", success: false };
+  }
+};
+const getUserById = async (userId) => {
+  try {
+    const response = axios.get(`/api/users/${userId}`);
+    return { user: response.data.user, success: true };
+  } catch (err) {
+    return { user: {}, success: false };
   }
 };
 const getAllProducts = async () => {
@@ -126,4 +138,5 @@ export {
   getCategories,
   signupuser,
   loginuser,
+  getUserById,
 };

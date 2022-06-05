@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { loginuser } from "../../../api/apicall";
 import { useNavigate } from "react-router";
-
+import { useAuthContext } from "../../../context/AuthContext";
 const inititalLoginState = { email: "", password: "" };
 
 const validateForm = (formState) => {
@@ -26,12 +26,20 @@ const validateForm = (formState) => {
 const Login = () => {
   const [loginFormState, setLoginFormState] = useState(inititalLoginState);
   const [formError, setFormError] = useState(inititalLoginState);
+  const { authDispatch } = useAuthContext();
   let navigate = useNavigate();
 
   const loginUserFun = async () => {
     const response = await loginuser(loginFormState);
     if (response.success) {
       localStorage.setItem("token", response.token);
+      authDispatch({
+        type: "SET_LOGGED_USER",
+        payload: {
+          user: response.user,
+          token: response.token,
+        },
+      });
       navigate("/");
     } else {
       console.log("SOME ERROR1");
@@ -71,6 +79,7 @@ const Login = () => {
       <div className="form-container authentication-page">
         <form className="form card" onSubmit={loginUser}>
           <p className="typo-title flex-hz-center">Sign in</p>
+
           <FormInput
             label={"email"}
             value={loginFormState.email}
