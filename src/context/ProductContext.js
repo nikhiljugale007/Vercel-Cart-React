@@ -28,7 +28,6 @@ const ProductContextProvider = ({ children }) => {
     productState.products,
     productState.dataFilter
   );
-  console.log("PRODUCT CTX = ", productState.dataFilter.categories);
   return (
     <ProductContext.Provider
       value={{ filteredData, productState, productDispatch }}

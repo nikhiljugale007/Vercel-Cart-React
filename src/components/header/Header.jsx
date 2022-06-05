@@ -32,7 +32,7 @@ const Header = () => {
                       onClick={() => setOpenSidebar(false)}
                     >
                       Home
-                    </Link>
+			</Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
