@@ -18,6 +18,10 @@ import {
   getProductHandler,
 } from "./backend/controllers/ProductController";
 import {
+  getAllUsersHandler,
+  getUserHandler,
+} from "./backend/controllers/UserController";
+import {
   addItemToWishlistHandler,
   getWishlistItemsHandler,
   removeItemFromWishlistHandler,
@@ -85,6 +89,10 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
+
+      //user routes public
+      this.get("/users", getAllUsersHandler.bind(this));
+      this.get("/users/:userId", getUserHandler.bind(this));
     },
   });
 }
