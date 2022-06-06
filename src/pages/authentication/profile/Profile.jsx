@@ -1,30 +1,32 @@
-import { Address, Orders, Toast, UserProfile } from "../../../components";
+import { Address, Orders, UserProfile } from "../../../components";
 import "./Profile.css";
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import { useProductContext } from "../../../context/ProductContext";
+import { useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 import { Routes, Route, Link } from "react-router-dom";
+import { getUserById } from "../../../api/apicall";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const { productDispatch } = useProductContext();
-  const { authState } = useAuthContext();
-  const [toast, setToast] = useState({ label: "", val: false });
-  const signoutUser = () => {
-    setToast(() => ({ label: "Signing out user", val: true }));
-    localStorage.removeItem("token");
-    productDispatch({ type: "RESET_PRODUCT_STATE" });
+  const { authState, authDispatch } = useAuthContext();
 
-    setTimeout(() => {
-      setToast(() => ({ label: "", val: false }));
-      navigate("/login");
-    }, 2000);
-  };
-
+  useEffect(() => {
+    const getUseInfo = async () => {
+      const response = await getUserById({ userId: authState.user._id });
+      if (response.success) {
+        authDispatch({
+          type: "SET_LOGGED_USER",
+          payload: {
+            user: response.user,
+            token: response.token,
+          },
+        });
+      } else {
+        alert("Something went wrong, check console");
+      }
+    };
+    getUseInfo();
+  }, [authState.user._id, authDispatch]);
   return (
     <>
-      {toast.val && <Toast label={toast.label} />}
       <div className="profile-page">
         <p className="typo-title flex-hz-center p-2">My Profile</p>
         <div className="profile-grid">
@@ -54,33 +56,6 @@ const Profile = () => {
               <Route path="/orders" element={<Orders />} />
             </Routes>
           </div>
-        </div>
-        {/* <div className="flex-hz gap-1">
-          <Link to="/profile" className="link-no-style">
-            <button className="btn btn-outlined">
-              <p className="typo-label">User Profile</p>
-            </button>
-          </Link>
-          <Link to="/profile/address" className="link-no-style">
-            <button className="btn btn-outlined">
-              <p className="typo-label">Address</p>
-            </button>
-          </Link>
-          <Link to="/profile/orders" className="link-no-style">
-            <button className="btn btn-outlined">
-              <p className="typo-label">Orders</p>
-            </button>
-          </Link>
-        </div> */}
-        {/* <Routes>
-          <Route path="/" element={<UserProfile />} />
-          <Route path="/address" element={<Address />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes> */}
-        <div className="flex-hz-center">
-          <button className="btn btn-outlined" onClick={signoutUser}>
-            Sign Out
-          </button>
         </div>
       </div>
     </>

@@ -1,0 +1,11 @@
+.address-modal{
+      /* display: block;       */
+      /* background-color: aliceblue;   */
+      position: fixed;
+      top: 0;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      background-color: aliceblue;
+      min-width: 40rem;
+      padding: 1rem;
+      z-index: 100;
+}

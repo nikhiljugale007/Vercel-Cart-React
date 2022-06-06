@@ -25,12 +25,26 @@ const loginuser = async (user) => {
     return { token: "", success: false };
   }
 };
-const getUserById = async (userId) => {
+const getUserById = async ({ userId }) => {
   try {
-    const response = axios.get(`/api/users/${userId}`);
+    const response = await axios.get(`/api/users/${userId}`);
     return { user: response.data.user, success: true };
   } catch (err) {
+    console.log(err);
     return { user: {}, success: false };
+  }
+};
+const editUser = async (user) => {
+  try {
+    const response = await axios.post(
+      "/api/users/edit",
+      { userData: user },
+      { headers }
+    );
+    return { user: response.data.user, success: true };
+  } catch (err) {
+    console.log(err);
+    return { user: [], success: false };
   }
 };
 const getAllProducts = async () => {
@@ -139,4 +153,5 @@ export {
   signupuser,
   loginuser,
   getUserById,
+  editUser,
 };

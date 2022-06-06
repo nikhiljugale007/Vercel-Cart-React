@@ -12,3 +12,4 @@ export { Toast } from "./toast/Toast";
 export { UserProfile } from "./profile/UserProfile";
 export { Orders } from "./profile/Orders";
 export { Address } from "./profile/Address";
+export { AddressModal } from "./address_modal/AddressModal";

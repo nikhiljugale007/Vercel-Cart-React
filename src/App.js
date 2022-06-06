@@ -11,7 +11,7 @@ import {
   Profile,
   NotFoundPage,
 } from "./pages";
-import { Header } from "./components";
+import { AddressModal, Header } from "./components";
 function App() {
   return (
     <>
