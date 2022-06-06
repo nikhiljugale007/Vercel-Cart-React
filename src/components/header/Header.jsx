@@ -32,7 +32,7 @@ const Header = () => {
                       onClick={() => setOpenSidebar(false)}
                     >
                       Home
-			</Link>
+                    </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
@@ -59,6 +59,24 @@ const Header = () => {
                       onClick={() => setOpenSidebar(false)}
                     >
                       Cart
+                    </Link>
+                  </li>
+                  <li className="sidebar-item">
+                    <Link
+                      to="/profile/address"
+                      className="typo-subtext link-no-style full-width p-1"
+                      onClick={() => setOpenSidebar(false)}
+                    >
+                      Address
+                    </Link>
+                  </li>
+                  <li className="sidebar-item">
+                    <Link
+                      to="/profile/orders"
+                      className="typo-subtext link-no-style full-width p-1"
+                      onClick={() => setOpenSidebar(false)}
+                    >
+                      Orders
                     </Link>
                   </li>
                 </ul>

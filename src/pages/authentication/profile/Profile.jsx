@@ -28,9 +28,10 @@ const Profile = () => {
   return (
     <>
       <div className="profile-page">
-        <p className="typo-title flex-hz-center p-2">My Profile</p>
+        <p className="typo-title flex-hz-center p-2">Account</p>
+        <hr className="title-divider" />
         <div className="profile-grid">
-          <div className="flex-vt gap-1">
+          <div className="profile-nav">
             <Link to="/profile" className="link-no-style">
               <button className="btn btn-text">
                 <p className="typo-label">Profile</p>

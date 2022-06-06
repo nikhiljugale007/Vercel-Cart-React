@@ -5,7 +5,7 @@ const Orders = () => {
   const { orders } = authState.user;
   return (
     <div className="flex-vt g-1">
-      <p className="typo-label"> Your Orders {orders.length}</p>
+      <p className="typo-label"> Your Orders ({orders.length})</p>
     </div>
   );
 };

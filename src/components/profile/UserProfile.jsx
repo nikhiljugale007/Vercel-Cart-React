@@ -22,10 +22,13 @@ const UserProfile = () => {
     }, 2000);
   };
   return (
-    <div className="flex-vt g-1">
+    <div className="flex-vt g-1 full-width">
+      <p className="typo-label ">Profile Details</p>
       {toast.val && <Toast label={toast.label} />}
       <p className="typo-label">{"Email = " + email}</p>
-      <p className="typo-label">{"Name = " + firstName + " " + lastName}</p>
+      <p className="typo-label full-width">
+        {"Name = " + firstName + " " + lastName}
+      </p>
       <div className="flex-hz-center">
         <button className="btn btn-outlined" onClick={signoutUser}>
           Sign Out
