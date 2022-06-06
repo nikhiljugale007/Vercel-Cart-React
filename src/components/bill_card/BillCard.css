@@ -16,6 +16,9 @@ hr {
 	flex-direction: column;
 	padding: 1rem 0;
 }
+.address-container{
+	padding-bottom: 1rem;
+}
 
 @media screen and (max-width: 992px) {
 	.item-section {

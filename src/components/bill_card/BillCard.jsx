@@ -1,9 +1,12 @@
 import { useProductContext } from "../../context/ProductContext";
 import "./BillCard.css";
 import { useState, useEffect } from "react";
+import { AddressListModal } from "../address_list_modal/AddressListModal";
 const BillCard = () => {
   const { productState } = useProductContext();
   const [bill, setBill] = useState({});
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [openAdrressList, setOpenAddressList] = useState(false);
   const billReducer = (acc, curr) => {
     acc.totalOriginalPrice += curr.original_price * curr.qty;
     acc.totalPrice += curr.price * curr.qty;
@@ -102,12 +105,39 @@ const BillCard = () => {
           </p>
         </div>
         <hr />
+        {openAdrressList && (
+          <AddressListModal
+            setOpenAddressList={setOpenAddressList}
+            setSelectedAddress={setSelectedAddress}
+          />
+        )}
         <div className="bill-item">
           <p className="typo-label typo-subtext">
             <i className="fas fa-tags"></i>
-            Use Coupon
+            {"  Deliver to"}
           </p>
-          <button className="btn btn-success p-0">Apply</button>
+          <button
+            className="btn btn-outlined p-0"
+            onClick={() => setOpenAddressList(true)}
+          >
+            change
+          </button>
+        </div>
+        <div>
+          {selectedAddress === null ? (
+            <p className="typo-subtext">Please select a address</p>
+          ) : (
+            <div className="address-container">
+              <p className="typo-subtext text-bold">{selectedAddress.name}</p>
+              <p>
+                {selectedAddress.addressLine1 +
+                  " , " +
+                  selectedAddress.city +
+                  " , " +
+                  selectedAddress.country}
+              </p>
+            </div>
+          )}
         </div>
         <hr />
 

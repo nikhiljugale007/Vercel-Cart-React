@@ -54,7 +54,13 @@ export function makeServer({ environment = "development" } = {}) {
       });
 
       users.forEach((item) =>
-        server.create("user", { ...item, address: [], orders: [] })
+        server.create("user", {
+          ...item,
+          cart: [],
+          wishlist: [],
+          address: [],
+          orders: [],
+        })
       );
 
       categories.forEach((item) => server.create("category", { ...item }));

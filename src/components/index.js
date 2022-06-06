@@ -13,3 +13,4 @@ export { UserProfile } from "./profile/UserProfile";
 export { Orders } from "./profile/Orders";
 export { Address } from "./profile/Address";
 export { AddressModal } from "./address_modal/AddressModal";
+export { AddressListModal } from "./address_list_modal/AddressListModal";
