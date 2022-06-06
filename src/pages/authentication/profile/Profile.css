@@ -1,4 +1,16 @@
 .profile-page {
 	position: relative;
 	top: 8rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.profile-grid{
+	display: grid;
+	width: 500px;
+	grid-template-columns: 100px 1fr;
+}
+.grid-profile{
+	border-left: 1px solid;	padding: 1rem;
+
 }

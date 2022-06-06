@@ -9,3 +9,6 @@ export { CartProductCard } from "./cart_product_card/CartProductCard";
 export { BillCard } from "./bill_card/BillCard";
 export { FormInput } from "./form_input/FormInput";
 export { Toast } from "./toast/Toast";
+export { UserProfile } from "./profile/UserProfile";
+export { Orders } from "./profile/Orders";
+export { Address } from "./profile/Address";
