@@ -15,6 +15,8 @@ const BillCard = () => {
   const [openAdrressList, setOpenAddressList] = useState(false);
   const [toast, setToast] = useState({ label: "", val: false });
   const { authState, authDispatch } = useAuthContext();
+  const { firstName, lastName, email } = authState.user;
+
   const billReducer = (acc, curr) => {
     acc.totalOriginalPrice += curr.original_price * curr.qty;
     acc.totalPrice += curr.price * curr.qty;
@@ -87,15 +89,15 @@ const BillCard = () => {
         key: "rzp_test_vFvcEGlrEqFgxu",
         key_id: process.env.RAZORPAY_KEY_ID,
         key_secret: process.env.RAZORPAY_SECRET,
-        amount: 1000,
+        amount: (bill.totalPrice + bill.deliveryCharges) * 100,
         currency: "INR",
         name: "Vercel Store",
         description: "Thank you for shopping with us",
         callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
         prefill: {
-          name: "Nikhil",
-          email: "john@gmail.com",
-          contact: "9999999999",
+          name: firstName + " " + lastName,
+          email: email,
+          contact: selectedAddress.mobileno,
         },
         notes: { address: "Razorpay Corporate Office" },
         theme: { color: "#202528" },
@@ -103,7 +105,7 @@ const BillCard = () => {
           // alert(response.razorpay_payment_id);
           // alert(response.razorpay_order_id);
           // alert(response.razorpay_signature);
-          alert("Payment success");
+          // alert("Payment success");
           setToast((prev) => ({
             ...prev,
             label: "Payment Successfull",
@@ -203,7 +205,6 @@ const BillCard = () => {
                 selectedAddress === null ? "btn-disable" : ""
               }`}
               onClick={displayRazorpay}
-              disabled={true}
             >
               Place Order
             </button>

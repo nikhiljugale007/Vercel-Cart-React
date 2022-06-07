@@ -1,13 +1,10 @@
 .address-list-modal{
-      /* display: block;       */
-      /* background-color: aliceblue;   */
       position: absolute;
-      top: 0%;
-      left:50%;
-      margin-left: -150px;
+      top: 50%;      
+      transform: translate(-8%,0);
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       background-color: white;
-      min-width: 30rem;
+      width: 40rem;
       padding: 1rem;
       z-index: 100;
 }

@@ -5,7 +5,7 @@ const OrderCard = ({ product }) => {
 
   return (
     <>
-      <div className="card horizontal-card">
+      <div className="card horizontal-card order-card1">
         <img
           className="card-img-container horizontal-card-image "
           src={image_src}
