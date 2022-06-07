@@ -159,6 +159,7 @@ const BillCard = () => {
           <AddressListModal
             setOpenAddressList={setOpenAddressList}
             setSelectedAddress={setSelectedAddress}
+            selectedAddress={selectedAddress}
           />
         )}
         <div className="bill-item">
@@ -198,9 +199,11 @@ const BillCard = () => {
           </p>
           <div className="bill-item">
             <button
-              className="btn btn-primary full-width "
+              className={`btn btn-primary full-width ${
+                selectedAddress === null ? "btn-disable" : ""
+              }`}
               onClick={displayRazorpay}
-              // disabled={selectedAddress === null ? true : false}
+              disabled={true}
             >
               Place Order
             </button>
