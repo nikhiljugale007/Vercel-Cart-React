@@ -17,6 +17,13 @@ const authReducerFunction = (state, action) => {
         isLoggedIn: true,
         token: action.payload.token,
       };
+    case "LOGOUT_USER":
+      return {
+        ...state,
+        user: {},
+        isLoggedIn: false,
+        token: "",
+      };
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { Toast } from "../toast/Toast";
 
 const UserProfile = () => {
-  const { authState } = useAuthContext();
+  const { authState, authDispatch } = useAuthContext();
   const { firstName, lastName, email } = authState.user;
   const [toast, setToast] = useState({ label: "", val: false });
   const { productDispatch } = useProductContext();
@@ -15,7 +15,9 @@ const UserProfile = () => {
     setToast(() => ({ label: "Signing out user", val: true }));
     localStorage.removeItem("token");
     productDispatch({ type: "RESET_PRODUCT_STATE" });
-
+    authDispatch({
+      type: "LOGOUT_USER",
+    });
     setTimeout(() => {
       setToast(() => ({ label: "", val: false }));
       navigate("/login");

@@ -23,9 +23,7 @@ const Profile = () => {
         alert("Something went wrong, check console");
       }
     };
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
+
     getUseInfo();
   }, [authState.user._id, authDispatch, navigate]);
   return (

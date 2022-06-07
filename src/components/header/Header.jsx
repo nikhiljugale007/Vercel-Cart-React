@@ -133,7 +133,7 @@ const Header = () => {
               </i>
             </button>
           </NavLink>
-          <NavLink to="/login" className="link-no-style">
+          <NavLink to="/profile" className="link-no-style">
             <button className="btn btn-primary btn-icon">
               <i className="far fa-user-circle fa-2x"></i>
             </button>

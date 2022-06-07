@@ -38,6 +38,7 @@ const Login = () => {
         payload: {
           user: response.user,
           token: response.token,
+          isLoggedIn: true,
         },
       });
       navigate("/");

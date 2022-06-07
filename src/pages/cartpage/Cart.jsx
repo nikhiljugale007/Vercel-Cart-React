@@ -10,9 +10,6 @@ const Cart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
     const getCartData = async () => {
       const response = await getCart();
       response.success

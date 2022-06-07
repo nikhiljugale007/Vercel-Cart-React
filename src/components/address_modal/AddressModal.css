@@ -1,7 +1,8 @@
 .address-modal{
       position: absolute;
       top: 0;
-      transform: translate(-3%,-5%);
+      left: 0;
+      background-color: red;
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       background-color: white;
       width:  40rem;
