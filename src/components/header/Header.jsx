@@ -3,7 +3,9 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { useProductContext } from "../../context/ProductContext";
-import { RiCloseCircleLine, RiMenuLine } from "react-icons/ri";
+import { RiMenuLine } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 const Header = () => {
   const { productState } = useProductContext();
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -16,15 +18,23 @@ const Header = () => {
               className="btn btn-primary btn-icon btn-menu"
               onClick={() => setOpenSidebar((prev) => !prev)}
             >
-              {openSidebar ? (
-                <RiCloseCircleLine size={20} />
-              ) : (
-                <RiMenuLine size={20} />
-              )}
+              <RiMenuLine size={20} />
             </button>
             {openSidebar && (
               <div className="mobile-sidebar1">
                 <ul className="sidebar-container">
+                  <li className="mobile-sidebar1-header">
+                    <Link
+                      to="/profile"
+                      onClick={() => setOpenSidebar(false)}
+                      className="link-no-style"
+                    >
+                      <FaUserCircle size={40} />
+                    </Link>
+                    <div className="btn" onClick={() => setOpenSidebar(false)}>
+                      <AiOutlineClose size={20} />
+                    </div>
+                  </li>
                   <li className="sidebar-item">
                     <Link
                       to="/"

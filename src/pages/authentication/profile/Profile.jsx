@@ -2,12 +2,12 @@ import { Address, Orders, UserProfile } from "../../../components";
 import "./Profile.css";
 import { useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { getUserById } from "../../../api/apicall";
 
 const Profile = () => {
   const { authState, authDispatch } = useAuthContext();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getUseInfo = async () => {
       const response = await getUserById({ userId: authState.user._id });
@@ -23,8 +23,11 @@ const Profile = () => {
         alert("Something went wrong, check console");
       }
     };
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
     getUseInfo();
-  }, [authState.user._id, authDispatch]);
+  }, [authState.user._id, authDispatch, navigate]);
   return (
     <>
       <div className="profile-page">

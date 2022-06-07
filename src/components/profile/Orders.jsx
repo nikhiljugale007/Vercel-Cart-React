@@ -41,8 +41,7 @@ const Orders = () => {
               order.deliveredTo.country +
               ", " +
               order.deliveredTo.pincode +
-              ", " +
-              order.deliveredTo.mobileno}
+              ", "}
           </p>
           <p className="typo-subtext">{"Total = ₹" + order.bill.totalPrice}</p>
           <p>
