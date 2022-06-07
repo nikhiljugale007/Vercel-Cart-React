@@ -1,12 +1,20 @@
 import { useProductContext } from "../../context/ProductContext";
 import "./BillCard.css";
+import { v4 as uuid } from "uuid";
 import { useState, useEffect } from "react";
 import { AddressListModal } from "../address_list_modal/AddressListModal";
+import { Toast } from "../toast/Toast";
+import { useAuthContext } from "../../context/AuthContext";
+import { editUser } from "../../api/apicall";
+import { formatDate } from "../../backend/utils/authUtils";
+
 const BillCard = () => {
-  const { productState } = useProductContext();
+  const { productState, productDispatch } = useProductContext();
   const [bill, setBill] = useState({});
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [openAdrressList, setOpenAddressList] = useState(false);
+  const [toast, setToast] = useState({ label: "", val: false });
+  const { authState, authDispatch } = useAuthContext();
   const billReducer = (acc, curr) => {
     acc.totalOriginalPrice += curr.original_price * curr.qty;
     acc.totalPrice += curr.price * curr.qty;
@@ -21,6 +29,36 @@ const BillCard = () => {
     });
     setBill(temp_bill);
   }, [productState]);
+
+  const addToOrders = async () => {
+    console.log(productState.cart);
+    const orderSummary = {
+      items: productState.cart,
+      bill: bill,
+      deliveredTo: selectedAddress,
+      orderDate: formatDate(),
+      _id: uuid(),
+    };
+
+    const updatedUser = {
+      ...authState.user,
+      orders: [...authState.user.orders, orderSummary],
+    };
+    const response = await editUser({ user: updatedUser });
+    console.log(response);
+    if (response.success) {
+      authDispatch({
+        type: "SET_LOGGED_USER",
+        payload: {
+          user: response.user,
+          token: response.token,
+        },
+      });
+      productDispatch({ type: "SET_CART", payload: [] });
+    } else {
+      alert("Something went wrong. Check console");
+    }
+  };
 
   function loadScript(src) {
     return new Promise((resolve) => {
@@ -62,9 +100,20 @@ const BillCard = () => {
         notes: { address: "Razorpay Corporate Office" },
         theme: { color: "#202528" },
         handler: function (response) {
-          alert(response.razorpay_payment_id);
-          alert(response.razorpay_order_id);
-          alert(response.razorpay_signature);
+          // alert(response.razorpay_payment_id);
+          // alert(response.razorpay_order_id);
+          // alert(response.razorpay_signature);
+          alert("Payment success");
+          setToast((prev) => ({
+            ...prev,
+            label: "Payment Successfull",
+            val: true,
+          }));
+          setTimeout(() => {
+            setToast((prev) => ({ ...prev, label: "", val: false }));
+          }, 3000);
+
+          addToOrders();
         },
       };
       const rzp1 = new window.Razorpay(options);
@@ -77,6 +126,7 @@ const BillCard = () => {
 
   return (
     <div className="card bill-card">
+      {toast.val && <Toast label={toast.label} />}
       <div className="card-body">
         <p className="typo-label">Price Details</p>
       </div>
@@ -150,6 +200,7 @@ const BillCard = () => {
             <button
               className="btn btn-primary full-width "
               onClick={displayRazorpay}
+              // disabled={selectedAddress === null ? true : false}
             >
               Place Order
             </button>

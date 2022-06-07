@@ -14,3 +14,4 @@ export { Orders } from "./profile/Orders";
 export { Address } from "./profile/Address";
 export { AddressModal } from "./address_modal/AddressModal";
 export { AddressListModal } from "./address_list_modal/AddressListModal";
+export { OrderCard } from "./order_card/OrderCard";

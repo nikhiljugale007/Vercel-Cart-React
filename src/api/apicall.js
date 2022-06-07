@@ -74,6 +74,7 @@ const addToWishlist = async (product) => {
     );
     return { wishlist: response.data.wishlist, success: true };
   } catch (err) {
+    console.log(err);
     return { wishlist: [], success: false };
   }
 };
