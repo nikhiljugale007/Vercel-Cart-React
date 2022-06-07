@@ -1,6 +1,6 @@
 import "./Home.css";
 
-import { AdvCard, DiscountCard } from "../../components";
+import { AdvCard, DiscountCard, Footer } from "../../components";
 import { todays_deals, top_brands, top_categories } from "./HomePageData";
 import { hero1 } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
@@ -96,6 +96,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   );
 };

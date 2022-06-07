@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      hello
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Product />} />
@@ -45,9 +46,6 @@ function App() {
           }
         />
         <Route path="/mockman" element={<Mockman />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
-        {/* <Route path="/wishlist" element={<Wishlist />} /> */}
-        {/* <Route path="/profile/*" element={<Profile />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFoundPage />} />

@@ -1,6 +1,6 @@
 import { logo } from "../../assets";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import { useProductContext } from "../../context/ProductContext";
 import { RiMenuLine } from "react-icons/ri";
@@ -93,15 +93,15 @@ const Header = () => {
               </div>
             )}
           </div>
-          <NavLink to="/" className="btn btn-link btn-hide header-link">
+          <Link to="/" className="btn btn-link btn-hide header-link">
             <img className="img-round logo-container" src={logo} alt="logo" />
-          </NavLink>
-          <NavLink to="/" className="btn btn-link header-link">
+          </Link>
+          <Link to="/" className="btn btn-link header-link">
             Home
-          </NavLink>
-          <NavLink to="/product" className="btn btn-link btn-hide header-link">
+          </Link>
+          <Link to="/product" className="btn btn-link btn-hide header-link">
             Shop
-          </NavLink>
+          </Link>
         </div>
         <div className="search-container btn-hide">
           <button className="btn btn-icon">
@@ -115,7 +115,7 @@ const Header = () => {
         </div>
 
         <div className="header-sub-container">
-          <NavLink to="/wishlist" className="link-no-style">
+          <Link to="/wishlist" className="link-no-style">
             <button className="btn btn-primary btn-icon btn-hide">
               <i className="far fa-heart fa-2x badge-parent">
                 <span className="badge-content badge-itself">
@@ -123,8 +123,8 @@ const Header = () => {
                 </span>
               </i>
             </button>
-          </NavLink>
-          <NavLink to="/cart" className="link-no-style">
+          </Link>
+          <Link to="/cart" className="link-no-style">
             <button className="btn btn-primary btn-icon btn-hide">
               <i className="fas fa-shopping-basket fa-2x badge-parent">
                 <span className="badge-content badge-itself">
@@ -132,12 +132,12 @@ const Header = () => {
                 </span>
               </i>
             </button>
-          </NavLink>
-          <NavLink to="/profile" className="link-no-style">
+          </Link>
+          <Link to="/profile" className="link-no-style">
             <button className="btn btn-primary btn-icon">
               <i className="far fa-user-circle fa-2x"></i>
             </button>
-          </NavLink>
+          </Link>
         </div>
       </header>
     </div>

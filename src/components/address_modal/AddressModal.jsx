@@ -75,9 +75,6 @@ const AddressModal = ({ setOpenAddressModal }) => {
     <div className="address-modal">
       <div className="modal-heading">
         <p className="typo-title">New Address</p>
-        {/* <button className="btn btn-icon" onclick={closeModal}>
-          <i className="fa fa-times fa-lg" aria-hidden="true"></i>
-        </button> */}
       </div>
       <form className="flex-vt g-1" onSubmit={addAddress}>
         <div className="modal-body flex-vt g-1">
