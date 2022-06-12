@@ -1,4 +1,37 @@
 .profile-page {
 	position: relative;
 	top: 8rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.profile-grid{
+	display: grid;
+	width: 50rem;
+	grid-template-columns: 100px 1fr;		
+
+}
+.profile-nav{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.grid-profile{
+	border-left: 1px solid black ;	
+	padding: 1rem;
+}
+.title-divider{
+	width: 50%;
+}
+@media screen and (max-width: 1024px) {
+	.profile-nav{
+		display: none;
+	}
+	.profile-grid{
+		max-width: 40rem;
+		grid-template-columns:  1fr;		
+	}
+	.grid-profile{
+		border: none;
+	}
 }

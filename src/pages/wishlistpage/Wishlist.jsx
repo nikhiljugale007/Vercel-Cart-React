@@ -6,32 +6,29 @@ import { useProductContext } from "../../context/ProductContext";
 import { useNavigate } from "react-router";
 
 const Wishlist = () => {
-	const { productState, productDispatch } = useProductContext();
-	const navigate = useNavigate();
-	useEffect(() => {
-		if (!localStorage.getItem("token")) {
-			navigate("/login");
-		}
-		const getWishlistData = async () => {
-			const response = await getWishlist();
-			response.success
-				? productDispatch({ type: "SET_WISHLIST", payload: response.wishlist })
-				: productDispatch({ type: "SET_WISHLIST", payload: [] });
-		};
-		getWishlistData();
-	}, [productDispatch, navigate]);
-	return (
-		<div className="wishlist-page">
-			<p className="typo-title flex-hz-center p-2">
-				My Wishlist {`(  ${productState.wishlist.length} items)`}
-			</p>
-			<div className="grid grid-4-responsive">
-				{productState.wishlist.map((product) => (
-					<ProductCard card_type={"wishlist_card"} product={product} />
-				))}
-			</div>
-		</div>
-	);
+  const { productState, productDispatch } = useProductContext();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const getWishlistData = async () => {
+      const response = await getWishlist();
+      response.success
+        ? productDispatch({ type: "SET_WISHLIST", payload: response.wishlist })
+        : productDispatch({ type: "SET_WISHLIST", payload: [] });
+    };
+    getWishlistData();
+  }, [productDispatch, navigate]);
+  return (
+    <div className="wishlist-page">
+      <p className="typo-title flex-hz-center p-2">
+        My Wishlist {`(  ${productState.wishlist.length} items)`}
+      </p>
+      <div className="grid grid-4-responsive">
+        {productState.wishlist.map((product) => (
+          <ProductCard card_type={"wishlist_card"} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export { Wishlist };

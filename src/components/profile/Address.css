@@ -1,0 +1,10 @@
+.address-card{
+      border: 1px solid black;
+      padding: 1rem;
+}
+.subtext-gray{
+      color: gray;
+}
+.btn{
+      padding: 0.5rem;
+}
