@@ -12,8 +12,9 @@ const Cart = () => {
   useEffect(() => {
     const getCartData = async () => {
       const response = await getCart();
+      const cartArray = response.cart.filter((cartItem) => cartItem.qty > 0);
       response.success
-        ? productDispatch({ type: "SET_CART", payload: response.cart })
+        ? productDispatch({ type: "SET_CART", payload: cartArray })
         : productDispatch({ type: "SET_CART", payload: [] });
     };
     getCartData();

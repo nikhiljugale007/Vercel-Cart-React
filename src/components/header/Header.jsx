@@ -118,18 +118,22 @@ const Header = () => {
           <Link to="/wishlist" className="link-no-style">
             <button className="btn btn-primary btn-icon btn-hide">
               <i className="far fa-heart fa-2x badge-parent">
-                <span className="badge-content badge-itself">
-                  {productState.wishlist.length}
-                </span>
+                {productState.wishlist.length > 0 && (
+                  <span className="badge-content badge-itself">
+                    {productState.wishlist.length}
+                  </span>
+                )}
               </i>
             </button>
           </Link>
           <Link to="/cart" className="link-no-style">
             <button className="btn btn-primary btn-icon btn-hide">
               <i className="fas fa-shopping-basket fa-2x badge-parent">
-                <span className="badge-content badge-itself">
-                  {productState.cart.length}
-                </span>
+                {productState.cart.length > 0 && (
+                  <span className="badge-content badge-itself">
+                    {productState.cart.length}
+                  </span>
+                )}
               </i>
             </button>
           </Link>
